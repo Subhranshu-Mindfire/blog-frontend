@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
-import { UserProvider } from './context/UserContext.jsx';
+import { UserProvider } from './context/userContext';
 
 
 const App = () => {
@@ -14,7 +14,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/logout" element={<Logout />} />
           </Routes>
         </BrowserRouter>

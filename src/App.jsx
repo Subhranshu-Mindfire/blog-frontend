@@ -6,6 +6,7 @@ import Logout from './components/Logout';
 import { UserProvider } from './context/userContext';
 import axios from 'axios';
 import { useState } from 'react';
+import Posts from './components/Posts';
 
 const setHeader = (token) => {
   if (token) {
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login setToken={setToken}/>} />
             <Route path="/logout" element={<Logout/>}/>
+            <Route path="/posts" element={<Posts/>}/>
           </Routes>
         </BrowserRouter>
       </UserProvider>

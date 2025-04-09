@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/userContext';
 import { logoutUser } from '../utils/auth';
+import "./Logout.css"
 
 
 const Logout = () => {
@@ -14,7 +15,7 @@ const Logout = () => {
     navigate("/login")
   };
   return (
-    <button onClick={() => { handleLogout() }}>Logout</button>
+    <button className="btn btn-orange ms-3 fs-5" onClick={() => { handleLogout() }}>Logout</button>
   )
 }
 

@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from '../context/userContext';
+import "./Logout.css"
 
-const Login = ({setToken}) => {
+const Login = ({ setToken }) => {
   const { setCurrentUser } = useUser();
   const navigate = useNavigate();
 
@@ -30,41 +31,43 @@ const Login = ({setToken}) => {
       localStorage.setItem('is_authenticated', 'true');
 
       setCurrentUser({ id: user.id, name: user.name, token });
-      navigate('/dashboard');
+      navigate('/posts');
     } catch (err) {
       console.log(err)
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
+    <form onSubmit={handleLogin} className="container my-5 bg-white rounded-2" style={{ maxWidth: '400px' }}>
+      <div className='px-3'>
+        <div className="mt-5 pt-3 text-center fs-2 fw-semibold">Login</div>
 
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email:</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password:</label>
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-orange w-100 mb-4">Login</button>
       </div>
-
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-
-      <button type="submit">Login</button>
-
-
     </form>
   );
 };

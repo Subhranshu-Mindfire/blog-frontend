@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from '../context/userContext';
 
-const Login = () => {
+const Login = ({setToken}) => {
   const { setCurrentUser } = useUser();
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ const Login = () => {
       });
 
       const { token, user } = res.data;
+      setToken(token)
 
       localStorage.setItem('token', token);
       localStorage.setItem('username', user.name);

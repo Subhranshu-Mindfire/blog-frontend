@@ -1,21 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useUser } from '../context/userContext';
+import Logout from './Logout';
 
 const Navbar = () => {
-  const { currentUser, setCurrentUser } = useUser();
-
-  const logout = () => {
-    localStorage.clear();
-    setCurrentUser(null);
-  };
-
+  const { currentUser } = useUser();
+  console.log(currentUser);
+  
   return (
     <nav>
       <Link to="/">Home</Link> 
-      {currentUser ? (
+      {currentUser.id ? (
         <>
           <span>Welcome, {currentUser.name}</span> 
-          <button onClick={logout}>Logout</button>
+          <Logout/>
         </>
       ) : (
         <>

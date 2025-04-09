@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { createContext, useContext, useState } from 'react';
 
 const UserContext = createContext(null);
 
@@ -9,19 +8,10 @@ export const UserProvider = ({ children }) => {
     const username = localStorage.getItem('username');
     const userId = localStorage.getItem('user_id');
     const isAuthenticated = localStorage.getItem('is_authenticated') === 'true';
+    console.log(isAuthenticated)
 
-    return isAuthenticated && token && username && userId
-      ? { id: userId, name: username, token }
-      : null;
+    return { id: userId, name: username, token };
   });
-
-  useEffect(() => {
-    if (currentUser?.token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${currentUser.token}`;
-    } else {
-      delete axios.defaults.headers.common['Authorization'];
-    }
-  }, [currentUser]);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>

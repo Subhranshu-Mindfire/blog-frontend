@@ -18,19 +18,24 @@ const Navbar = () => {
             {currentUser.id ? (
               <>
                 <li className="nav-item ">
-                  <span className="nav-link text-orange">Welcome, {currentUser.name}</span>
+                  <span className="nav-link text-orange mx-2">Welcome, {currentUser.name} </span>
                 </li>
                 <li className='nav-item'>
-                  <button className="btn btn-orange mt-1 fs-6" type="button" onClick={()=>navigate("/posts/new")}>Add Blog +</button>
+                  <button className="btn btn-orange mt-1 fs-6" type="button" onClick={() => navigate("/posts/new")}>Add Blog +</button>
                 </li>
                 <li className="nav-item text-orange">
                   <Logout />
                 </li>
               </>
             ) : (
-              <li className="nav-item">
-                <Link className="nav-link" to="/login"><button className='btn btn-orange fs-5'>Login</button></Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login"><button className='btn btn-orange fs-5'>Login</button></Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup"><button className='btn btn-orange fs-5'>Signup</button></Link>
+                </li>
+              </>
             )}
           </ul>
         </div>

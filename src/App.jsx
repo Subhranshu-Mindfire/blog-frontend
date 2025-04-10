@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Posts from './components/Posts';
 import NewPost from './components/NewPost';
+import Signup from './components/Signup';
 
 const setHeader = (token) => {
   if (token) {
@@ -32,7 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login setToken={setToken}/>} />
-            <Route path="/signup" element={<Logout/>}/>
+            <Route path="/signup" element={<Signup/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/posts" element={<Posts/>}/>
             <Route path="/posts/new" element={<NewPost/>}/>

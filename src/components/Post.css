@@ -1,0 +1,14 @@
+.post-card:hover{
+  scale: 1.02;
+  transition: ease-in;
+  cursor: pointer;
+  transition-duration: 100ms;
+}
+
+.post-user:hover{
+  scale: 1.1;
+  transition: ease-in;
+  cursor: pointer;
+  transition-duration: 100ms;
+  font-weight: 500;
+}

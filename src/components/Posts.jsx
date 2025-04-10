@@ -10,7 +10,8 @@ const Posts = () => {
     const getPosts = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
-        setPosts(response.data.posts);
+        setPosts(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -20,7 +21,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="container-xxl mt-4">
+    <div className="container-xxl mt-4" style={{maxWidth:"700px"}}>
       <h2 className="mb-4">Posts</h2>
       {posts.map((post) => (
         <Post key={post.id} post={post} />

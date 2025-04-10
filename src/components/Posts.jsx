@@ -1,37 +1,32 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Post from './Post';
 
 const Posts = () => {
-
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    try {
-          const getPosts = async () => {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`)
-            console.log(response)
-            setPosts(response.data.posts)
-        }
-        getPosts() 
-    } catch (error) {
-      console.log(error)
-    }
-    
-    
-  }, [])
-  
-  return (
-    <>
-    <div>Posts</div>
-      {posts.map((post)=>{
-        return( 
-        <ul>
-          <li>{post.title}</li>
-          <li>{post.description}</li>
-        </ul>)
-      })}
-    </>
-  )
-}
+    const getPosts = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
+        setPosts(response.data.posts);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
 
-export default Posts
+    getPosts();
+  }, []);
+
+  return (
+    <div className="container-xxl mt-4">
+      <h2 className="mb-4">Posts</h2>
+      {posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
+    </div>
+  );
+};
+
+export default Posts;

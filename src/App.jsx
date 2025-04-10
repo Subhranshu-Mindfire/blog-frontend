@@ -7,6 +7,7 @@ import { UserProvider } from './context/userContext';
 import axios from 'axios';
 import { useState } from 'react';
 import Posts from './components/Posts';
+import NewPost from './components/NewPost';
 
 const setHeader = (token) => {
   if (token) {
@@ -31,8 +32,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login setToken={setToken}/>} />
+            <Route path="/signup" element={<Logout/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/posts" element={<Posts/>}/>
+            <Route path="/posts/new" element={<NewPost/>}/>
+
           </Routes>
         </BrowserRouter>
       </UserProvider>

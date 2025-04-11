@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useUser } from '../context/userContext';
 import "./Logout.css"
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, toast }) => {
   const { setCurrentUser } = useUser();
   const navigate = useNavigate();
 
@@ -31,6 +31,12 @@ const Login = ({ setToken }) => {
       localStorage.setItem('is_authenticated', 'true');
 
       setCurrentUser({ id: user.id, name: user.name, token });
+      
+      toast.success('Login Successful!!', {
+              position: 'top-right',
+              autoClose: 5000, 
+      });
+
       navigate('/posts');
     } catch (err) {
       console.log(err)

@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 dayjs.extend(relativeTime);
 
 const Post = ({ post }) => {
-  // console.log(post.likes)
   const navigate = useNavigate()
   const [liked, setLiked] = useState(post.likedByUser);
   const [likesCount, setLikesCount] = useState(post.noOfLikes || 0);

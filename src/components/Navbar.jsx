@@ -3,6 +3,8 @@ import { useUser } from '../context/userContext';
 import Logout from './Logout';
 import "./Navbar.css"
 import "./Logout.css"
+import { ToastContainer } from 'react-toastify';
+
 
 const Navbar = () => {
   const { currentUser } = useUser();
@@ -13,6 +15,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg px-3 bg-light fs-4 shadow-lg">
         <Link className="navbar-brand text-orange fs-3 fw-bolder" to="/">Blog App</Link>
+        <ToastContainer/>
         <div className="collapse navbar-collapse ">
           <ul className="navbar-nav ms-auto">
             {currentUser.id ? (

@@ -11,7 +11,7 @@ const Posts = () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
         setPosts(response.data);
-        console.log(response.data)
+        console.log("all posts",response.data)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }

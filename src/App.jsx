@@ -10,6 +10,8 @@ import Posts from './components/Posts';
 import NewPost from './components/NewPost';
 import Signup from './components/Signup';
 import DetailedPost from './components/DetailedPost';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const setHeader = (token) => {
   if (token) {
@@ -33,7 +35,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login setToken={setToken}/>} />
+            <Route path="/login" element={<Login setToken={setToken} toast={toast}/>} />
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/posts" element={<Posts/>}/>

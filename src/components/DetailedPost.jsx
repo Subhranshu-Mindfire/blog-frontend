@@ -21,7 +21,6 @@ const DetailedPost = () => {
         setPost(response.data);
         setLiked(response.data.likedByUser)
         setLikesCount(response.data.noOfLikes)
-        console.log(response.data)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }

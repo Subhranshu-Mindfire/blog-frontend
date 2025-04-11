@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Posts from './components/Posts';
 import NewPost from './components/NewPost';
 import Signup from './components/Signup';
+import DetailedPost from './components/DetailedPost';
 
 const setHeader = (token) => {
   if (token) {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/posts" element={<Posts/>}/>
+            <Route path="/posts/:id" element={<DetailedPost/>}/>
             <Route path="/posts/new" element={<NewPost/>}/>
 
           </Routes>

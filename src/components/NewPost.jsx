@@ -69,7 +69,7 @@ const NewPost = () => {
         </div>
 
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-success m-auto">Post</button>
+          <button type="submit" className="btn btn-lg btn-success m-auto">Post</button>
         </div>
       </form>
 

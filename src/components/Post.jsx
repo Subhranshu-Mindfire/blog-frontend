@@ -3,11 +3,13 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import "./Post.css"
+import { useNavigate } from 'react-router-dom';
 
 dayjs.extend(relativeTime);
 
 const Post = ({ post }) => {
-  console.log(post.likes)
+  // console.log(post.likes)
+  const navigate = useNavigate()
   const [liked, setLiked] = useState(post.likedByUser);
   const [likesCount, setLikesCount] = useState(post.noOfLikes || 0);
 
@@ -39,7 +41,7 @@ const Post = ({ post }) => {
           </div>
         </div>
 
-        <p className="card-text mt-2">{post.truncatedDescription}</p>
+        <p className="card-text mt-2" onClick={() => navigate(`/posts/${post.id}`)}>{post.truncatedDescription}</p>
 
         <div className="d-flex gap-3 fs-3 mb-1 align-items-center">
           <div role="button" onClick={handleLikeToggle}>

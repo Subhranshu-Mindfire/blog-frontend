@@ -39,10 +39,8 @@ const NewPost = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 shadow-lg p-5">
       <h2 className="mb-4 fs-1 text-center">Create New Post</h2>
-      <ToastContainer />
-
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label fs-3">Title</label>

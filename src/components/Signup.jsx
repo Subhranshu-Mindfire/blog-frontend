@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./Logout.css"
 
 const Signup = () => {
+  useEffect(() => {
+      const isAuthenticated = localStorage.getItem('is_authenticated');
+      if (isAuthenticated === 'true') {
+        navigate('/');
+      }
+    }, []);
+
   const navigate = useNavigate();
 
   const [name, setName] = useState('');

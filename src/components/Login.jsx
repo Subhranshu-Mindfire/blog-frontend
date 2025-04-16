@@ -3,8 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from '../context/userContext';
 import "./Logout.css"
+import { useEffect } from 'react';
 
 const Login = ({ setToken, toast }) => {
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('is_authenticated');
+    if (isAuthenticated === 'true') {
+      navigate('/');
+    }
+  }, []);
   const { setCurrentUser } = useUser();
   const navigate = useNavigate();
 
@@ -12,6 +19,7 @@ const Login = ({ setToken, toast }) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
+    console.log(axios.defaults.headers)
     e.preventDefault();
 
     try {
@@ -32,7 +40,7 @@ const Login = ({ setToken, toast }) => {
 
       setCurrentUser({ id: user.id, name: user.name, token });
       
-      toast.success('Login Successful!!', {
+      toast.success('Login Successful!!!', {
               position: 'top-right',
               autoClose: 5000, 
       });

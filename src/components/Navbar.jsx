@@ -15,7 +15,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg px-3 bg-light fs-4 shadow-lg">
         <Link className="navbar-brand text-orange fs-3 fw-bolder" to="/">Blog App</Link>
-        <ToastContainer/>
+
         <div className="collapse navbar-collapse ">
           <ul className="navbar-nav ms-auto">
             {currentUser.id ? (
@@ -30,7 +30,9 @@ const Navbar = () => {
                   <button className="btn btn-orange mt-2 fs-6" type="button" onClick={() => navigate("/posts")}>All Blogs</button>
                 </li>
                 <li className='nav-item mx-1'>
-                  <button className="btn btn-orange mt-2 fs-6" type="button" onClick={() => navigate("/posts/new")}>My Blogs</button>
+                  <button className="btn btn-orange mt-2 fs-6" type="button" onClick={() => navigate(`/users/${currentUser.id}/posts`)}>
+                    My Blogs
+                  </button>
                 </li>
                 <li className="nav-item text-orange mt-1">
                   <Logout />
@@ -38,6 +40,9 @@ const Navbar = () => {
               </>
             ) : (
               <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/posts"><button className='btn btn-orange fs-5'>All Blogs</button></Link>
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/login"><button className='btn btn-orange fs-5'>Login</button></Link>
                 </li>

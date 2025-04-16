@@ -1,0 +1,15 @@
+.pagination .active a{
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 42, 0) !important;
+  border-color: orangered !important;
+}
+
+.pagination .page-link{
+  color: rgb(255, 42, 0) ;
+  background-color: antiquewhite;
+}
+
+.pagination .page-link:hover{
+  color: rgb(255, 42, 0) ;
+  background-color: rgb(255, 210, 203);
+}
